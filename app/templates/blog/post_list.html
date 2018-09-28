@@ -11,9 +11,20 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
 </head>
 <body>
-    <h1>Post List</h1>
-    {% for post in posts %}
-        <li>{{ post.title }} : {{post.created_date}}</li>
-    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand "href="#">DjangoGirls</a>
+    </nav>
+    <div class="container">
+        {% for post in posts %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="author">{{ post.author }}</p>
+                <p class="create_time">{{ post.created_time }}</p>
+                <p class="text_field">{{ post.text}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
