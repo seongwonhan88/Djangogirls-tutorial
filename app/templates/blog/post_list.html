@@ -9,6 +9,8 @@
 </head>
 <body>
     <h1>Post List</h1>
-    {{ posts|safe }}
+    {% for post in posts %}
+        <li>{{ post.title }} : {{post.created_date}}</li>
+    {% endfor %}
 </body>
 </html>
