@@ -19,9 +19,9 @@
         <div class="card mb-2">
             <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
-                <p class="author">{{ post.author }}</p>
+                <p class="author">Author : {{ post.author }}</p>
                 <p class="create_time">{{ post.created_time }}</p>
-                <p class="text_field">{{ post.text}}</p>
+                <p class="text_field">{{ post.text|linebreaksbr|truncatechars:200 }}</p>
             </div>
         </div>
         {% endfor %}
