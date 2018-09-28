@@ -1,18 +1,18 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
 from django.utils import timezone
-import os
+
+from .models import Post
 
 def post_list(request):
-    # bring template
-    template = loader.get_template('blog/post_list.html')
-    # template rendering
+    posts = Post.objects.all().order_by('-created_date')
+    content = ''
+    content += '<ul>'
+
+    for post in posts:
+        content += f'<li>{post.title}</li>'
+    content += '</ul>'
 
     context = {
-        'name': 'seongwon'
+        'posts' : content,
     }
-    # content = template.render(context, request)
-    # return HttpResponse(content)
-
     return render(request, 'blog/post_list.html', context)
