@@ -24,5 +24,9 @@ from blog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.post_list, name='post-list')
+    url(r'^$', views.post_list, name='post-list'),
+    url(r'^posts/(?P<pk>\d+)/$', views.post_detail)
+    # request가 오면 post_detail(request = request, pk = <group에 주어진 값>
+    #
+    #
 ]
