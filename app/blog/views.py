@@ -86,6 +86,29 @@ def post_update(request, pk):
     # input 속성의 기본값은 value
     # textarea 속성의 기본값은 열림/닫힘 태그 사이의 텍스트
 
+    # pk에 대항하는 Post Instance를 'post' 키 값으로 템플릿 렝더링 과정에 전달
+    post = Post.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        # form 으로 부터 전달된 데이터를 변수에 할당
+        title = request.POST['title']
+        text = request.POST['text']
+        # 수정할 Post instance의 속성에 전다받은 데이터의 값을 할당
+
+        post.title = title
+        post.text = text
+
+        #db에 변경사항 업데이트
+        post.save()
+
+        # /post/<pk>/
+        #reverse 를 사용해서
+
+        return redirect('post-detail', pk=pk)
+    else:
+        context = {
+            'post' : post,
+        }
 
 
-    return render(request, 'blog/post_update.html')
+        return render(request, 'blog/post_update.html', context)
