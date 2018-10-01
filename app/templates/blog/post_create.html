@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form>
-    <input name="title" type="text"> <br>
-    <textarea name="text" id="" cols="30" rows="10"></textarea>
-    <button type="submit"> submit </button>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id-title">제목</label>
+        <input name="title" type="text" class ="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="id-text">내용</label>
+        <textarea name="text" id="" cols="30" rows="10" class="form-control"></textarea>
+    </div>
+        <button type="submit" class="btn btn-primary btn-block"> submit </button>
 </form>
 {% endblock %}
