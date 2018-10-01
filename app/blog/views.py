@@ -1,8 +1,8 @@
 import re
 
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import Post
 
 def post_list(request):
@@ -56,8 +56,11 @@ def post_create(request):
             title = title,
             text = text,
         )
-        next_path = '/blog-posts/'
-        return HttpResponseRedirect(next_path)
+
+        # next_path = reverse('post-list')
+        # return HttpResponseRedirect(next_path)
+
+        return redirect('post-list')
 
 
     else:
