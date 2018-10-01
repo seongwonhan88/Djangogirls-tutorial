@@ -18,7 +18,4 @@ def post_detail(request, pk):
     context = {
         'post' : post
     }
-    # templates/blog/post_detail.html
-    # post 가 가진 title, text, author. created_date, pubslished_date 출력
-    # return HttpResponse(post.title)
     return render(request, 'blog/post_detail.html', context)
