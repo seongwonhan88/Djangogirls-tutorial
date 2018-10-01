@@ -12,6 +12,12 @@
             <p class="create_time">{{ post.created_time }}</p>
             <p class="card-text">{{ post.text|linebreaksbr|truncatechars:200 }}</p>
         </div>
+        <div>
+            <div class="post-btn-container float-left">
+                <a href="{% url 'post-update' pk=post.pk%}" class="btn btn-info">update</a>
+            </div>
+            <p class="text-right">Author: {{ post.author }}</p>
+        </div>
     </div>
     {% endfor %}
 
