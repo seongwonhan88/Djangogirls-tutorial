@@ -2,7 +2,7 @@
 
 {% block content%}
     <div class="card mt-2">
-        <a href = "/" class="btn btn-primary mb-2">글 목록으로</a>
+        <a href = "{% url 'post-list' %}" class="btn btn-primary mb-2">글 목록으로</a>
         <div class="card-body">
             <h5 class="card-title" >{{ post.title }}</h5>
             <p class="card-subtitle mb-2 text-muted">Author : {{ post.author }}</p>

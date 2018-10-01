@@ -6,7 +6,7 @@
     <div class="card mb-2">
         <div class="card-body">
             <h5 class="card-title">
-                <a href="/posts/{{post.pk }}">{{ post.title }}</a>
+                <a href="{% url 'post-detail' pk=post.pk %}">{{ post.title }}</a>
             </h5>
             <p class="card-subtitle mb-2 text-muted">Author : {{ post.author }}</p>
             <p class="create_time">{{ post.created_time }}</p>
