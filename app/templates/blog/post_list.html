@@ -20,4 +20,25 @@
     </div>
     {% endfor %}
 
+    <nav>
+        <ul class="pagination">
+            {% if posts.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ posts.previous_page_number }}" class="page-link">이전</a>
+            </li>
+            {% endif %}
+
+            <li class = "page-item active">
+                <span class="page-link">
+                    {{ posts.number }} of {{ posts.paginator.num_pages }}
+                </span>
+            </li>
+
+            {% if posts.has_next %}
+            <li class="page-item">
+                <a href="?page={{ posts.next_page_number }}" class="page-link">다음</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endblock %}
